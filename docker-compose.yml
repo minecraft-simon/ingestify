@@ -1,7 +1,7 @@
 version: '3'
 services:
   my-ingestify-app:
-    image: my-ingestify-image
+    image: my-ingestify-image-2
     ports:
       - "8080:8080"
 
