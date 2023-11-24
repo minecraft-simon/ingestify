@@ -1,3 +1,6 @@
+# Custom Stuff
+hs_err_pid*.log
+
 # Gradle
 .gradle/
 build/
