@@ -1,14 +1,11 @@
-# Use a minimal base image
-FROM ubuntu:latest
+# Use the official OpenJDK 17 image as the base image
+FROM openjdk:17
 
-# Create a directory in the container to hold your files
-WORKDIR /application
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy the native executable into the container
-COPY build/quarkus-app /application
+# Copy your Kotlin/Java application JAR file into the container
+COPY . /app
 
-# Set the execution permissions
-RUN chmod 775 /application
-
-# Specify the command to run your Quarkus application
-CMD ["java -jar quarkus-run.jar -Dquarkus.http.host=0.0.0.0"]
+# Command to run your application when the container starts
+CMD ["java", "-jar", "quarkus-run.jar"]
