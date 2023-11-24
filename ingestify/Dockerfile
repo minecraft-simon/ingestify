@@ -1,14 +1,11 @@
-# Use the Quarkus base image
-FROM quay.io/quarkus/ubi-quarkus-native-image:22.0.0-java11
+# Use a minimal base image
+FROM ubuntu:latest
 
-# Set the working directory
-WORKDIR /work/
+# Create a directory in the container to hold your files
+WORKDIR /application
 
-# Copy your Quarkus application jar file into the container
-COPY target/*-runner /work/application
-
-# Set the execution permissions
-RUN chmod 775 /work
+# Copy the native executable into the container
+COPY build/quarkus-app /application
 
 # Specify the command to run your Quarkus application
-CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
+CMD ["/application", "-Dquarkus.http.host=0.0.0.0"]
