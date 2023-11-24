@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy your Kotlin/Java application JAR file into the container
-COPY . /app
+COPY build/quarkus-app /app
 
 # Command to run your application when the container starts
 CMD ["java", "-jar", "quarkus-run.jar"]
