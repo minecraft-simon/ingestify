@@ -26,4 +26,4 @@ jobs:
         run: ssh staging 'cd /home/ubuntu/applications/ingestify/ingestify && docker compose down && git pull'
 
       - name: Build and start
-        run: ssh staging 'cd /home/ubuntu/applications/ingestify/ingestify/ingestify && quarkus build && cd .. && docker compose up -d'
+        run: ssh staging 'cd /home/ubuntu/applications/ingestify/ingestify/ingestify && ./gradlew build && cd .. && docker compose up -d'
