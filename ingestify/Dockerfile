@@ -11,4 +11,4 @@ COPY build/quarkus-app /application
 RUN chmod 775 /application
 
 # Specify the command to run your Quarkus application
-CMD ["/application", "-Dquarkus.http.host=0.0.0.0"]
+CMD ["java -jar quarkus-run.jar -Dquarkus.http.host=0.0.0.0"]
